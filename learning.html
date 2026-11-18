@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BACARA | Learning Environment</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="learning.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="learning-body">
+    <header class="learning-header">
+      <a href="index.html" class="back-link">← Dashboard</a>
+      <div class="learning-brand">
+        <strong>BACARA</strong>
+        <span>Adaptive Learning Environment</span>
+      </div>
+      <div class="session-status" id="sessionStatus">Not started</div>
+    </header>
+
+    <main class="learning-container">
+      <section class="lesson-heading">
+        <span class="eyebrow">BIOLOGY • INTRODUCTORY LEVEL</span>
+        <h1>Cell Structure and Functions</h1>
+        <p>
+          Explore the basic structure of a cell, identify its major organelles
+          and understand their functions.
+        </p>
+      </section>
+
+      <section class="learning-progress-panel">
+        <div class="progress-label">
+          <span>Learning session progress</span>
+          <strong id="progressText">0%</strong>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="step-labels">
+          <span>Diagnostic</span>
+          <span>Learning</span>
+          <span>Assessment</span>
+          <span>Complete</span>
+        </div>
+      </section>
+
+      <!-- STEP 1: DIAGNOSTIC TEST -->
+      <section class="learning-card" id="diagnosticSection">
+        <div class="section-heading">
+          <span class="step-number">01</span>
+          <div>
+            <h2>Diagnostic Assessment</h2>
+            <p>Let's establish your current understanding.</p>
+          </div>
+        </div>
+
+        <form id="diagnosticForm">
+          <div class="question">
+            <p>1. What is the basic structural and functional unit of life?</p>
+            <label
+              ><input type="radio" name="d1" value="a" required /> Tissue</label
+            >
+            <label><input type="radio" name="d1" value="b" /> Cell</label>
+            <label><input type="radio" name="d1" value="c" /> Organ</label>
+          </div>
+
+          <div class="question">
+            <p>2. Which organelle controls most cell activities?</p>
+            <label
+              ><input type="radio" name="d2" value="a" required />
+              Nucleus</label
+            >
+            <label><input type="radio" name="d2" value="b" /> Ribosome</label>
+            <label
+              ><input type="radio" name="d2" value="c" /> Cell membrane</label
+            >
+          </div>
+
+          <div class="question">
+            <p>
+              3. Which organelle is mainly responsible for releasing energy
+              through cellular respiration?
+            </p>
+            <label
+              ><input type="radio" name="d3" value="a" required />
+              Vacuole</label
+            >
+            <label
+              ><input type="radio" name="d3" value="b" /> Chloroplast</label
+            >
+            <label
+              ><input type="radio" name="d3" value="c" /> Mitochondrion</label
+            >
+          </div>
+
+          <button type="submit" class="primary-btn">
+            Submit Diagnostic Test
+          </button>
+        </form>
+
+        <div class="feedback" id="diagnosticFeedback" aria-live="polite"></div>
+      </section>
+
+      <!-- STEP 2: LEARNING ACTIVITY -->
+      <section class="learning-card hidden" id="activitySection">
+        <div class="section-heading">
+          <span class="step-number">02</span>
+          <div>
+            <h2>Learning Activity</h2>
+            <p>Study the lesson and explore the cell structures.</p>
+          </div>
+        </div>
+
+        <div class="learning-format">
+          <span>Current learning format</span>
+          <strong id="learningFormat">2D Explanation</strong>
+          <small id="formatReason">
+            This is the initial demonstration format.
+          </small>
+        </div>
+
+        <div class="lesson-content">
+          <h3>What is a cell?</h3>
+          <p>
+            A cell is the smallest structural and functional unit of a living
+            organism. All living organisms are made up of one or more cells.
+          </p>
+
+          <h3>Major cell organelles and their functions</h3>
+
+          <div class="organelle-grid">
+            <article>
+              <h4>Nucleus</h4>
+              <p>Controls cell activities and contains genetic material.</p>
+            </article>
+
+            <article>
+              <h4>Cell membrane</h4>
+              <p>
+                Controls the movement of substances into and out of the cell.
+              </p>
+            </article>
+
+            <article>
+              <h4>Cytoplasm</h4>
+              <p>
+                Provides the medium in which many cellular activities occur.
+              </p>
+            </article>
+
+            <article>
+              <h4>Mitochondrion</h4>
+              <p>Produces much of the usable energy required by the cell.</p>
+            </article>
+
+            <article>
+              <h4>Ribosomes</h4>
+              <p>Are responsible for protein synthesis.</p>
+            </article>
+
+            <article>
+              <h4>Chloroplast</h4>
+              <p>
+                Contains chlorophyll and carries out photosynthesis in plant
+                cells.
+              </p>
+            </article>
+          </div>
+
+          <div class="lesson-note">
+            <strong>Remember:</strong>
+            Plant cells generally have a cell wall, chloroplasts and a large
+            central vacuole. Animal cells do not have a cell wall or
+            chloroplasts.
+          </div>
+        </div>
+
+        <label class="completion-check">
+          <input type="checkbox" id="lessonCompleted" />
+          I have completed the learning activity.
+        </label>
+
+        <button id="continueToAssessment" class="primary-btn" disabled>
+          Continue to Post-Test
+        </button>
+      </section>
+
+      <!-- STEP 3: POST TEST -->
+      <section class="learning-card hidden" id="assessmentSection">
+        <div class="section-heading">
+          <span class="step-number">03</span>
+          <div>
+            <h2>Post-Learning Assessment</h2>
+            <p>Test what you have learnt from this lesson.</p>
+          </div>
+        </div>
+
+        <form id="assessmentForm">
+          <div class="question">
+            <p>
+              1. Which organelle contains the genetic material of a typical
+              eukaryotic cell?
+            </p>
+            <label
+              ><input type="radio" name="p1" value="a" required />
+              Ribosome</label
+            >
+            <label><input type="radio" name="p1" value="b" /> Nucleus</label>
+            <label><input type="radio" name="p1" value="c" /> Cytoplasm</label>
+          </div>
+
+          <div class="question">
+            <p>2. What is the main function of the cell membrane?</p>
+            <label
+              ><input type="radio" name="p2" value="a" required /> To control
+              movement of substances</label
+            >
+            <label
+              ><input type="radio" name="p2" value="b" /> To produce
+              sunlight</label
+            >
+            <label
+              ><input type="radio" name="p2" value="c" /> To store genetic
+              information</label
+            >
+          </div>
+
+          <div class="question">
+            <p>3. Which organelle is associated with photosynthesis?</p>
+            <label
+              ><input type="radio" name="p3" value="a" required />
+              Mitochondrion</label
+            >
+            <label><input type="radio" name="p3" value="b" /> Ribosome</label>
+            <label
+              ><input type="radio" name="p3" value="c" /> Chloroplast</label
+            >
+          </div>
+
+          <button type="submit" class="primary-btn">Submit Post-Test</button>
+        </form>
+
+        <div class="feedback" id="assessmentFeedback" aria-live="polite"></div>
+      </section>
+
+      <!-- STEP 4: SESSION RESULTS -->
+      <section class="learning-card hidden" id="resultsSection">
+        <div class="section-heading">
+          <span class="step-number">04</span>
+          <div>
+            <h2>Learning Session Completed</h2>
+            <p>Your performance for this learning session.</p>
+          </div>
+        </div>
+
+        <div class="result-grid">
+          <div class="result-item">
+            <span>Diagnostic score</span>
+            <strong id="initialScore">0/3</strong>
+          </div>
+
+          <div class="result-item">
+            <span>Post-test score</span>
+            <strong id="finalScore">0/3</strong>
+          </div>
+
+          <div class="result-item">
+            <span>Knowledge improvement</span>
+            <strong id="improvement">0%</strong>
+          </div>
+        </div>
+
+        <p id="finalMessage" class="final-message"></p>
+
+        <button class="secondary-btn" id="restartSession">
+          Restart Learning Session
+        </button>
+      </section>
+    </main>
+
+    <script src="learning.js"></script>
+    <script src="learner-state.js"></script>
+    <script src="collect-event.js"></script>
+    <script src="normalise.js"></script>
+  </body>
+</html>
